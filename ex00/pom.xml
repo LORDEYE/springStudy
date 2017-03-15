@@ -91,12 +91,19 @@
 		</dependency>
 				
 		<!-- Servlet -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 			<scope>provided</scope>
+		</dependency> -->
+		<!-- 스프링 mvc 테스트를 위한  serlvet 라이브러리 버젼 변경, was를 실행하지 않고 컨트롤러를 테스트하기 위해서 서블릿 버젼 변경 -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>3.1.0</version>
 		</dependency>
+				
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
