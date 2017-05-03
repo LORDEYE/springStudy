@@ -27,4 +27,5 @@
 	</bean>
 	
 	<context:component-scan base-package="com.tistory.lordeye.persistence"></context:component-scan>
+	<context:component-scan base-package="com.tistory.lordeye.service"></context:component-scan>
 </beans>

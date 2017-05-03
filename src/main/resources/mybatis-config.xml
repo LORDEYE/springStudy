@@ -17,4 +17,8 @@
   <!-- <mappers>
     <mapper resource="/mappers/MemberMapper.xml"/>
   </mappers> -->
+  
+  <typeAliases>
+  	<package name="com.tistory.lordeye.domain"/>
+  </typeAliases>
 </configuration>
