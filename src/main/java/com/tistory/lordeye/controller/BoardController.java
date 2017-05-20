@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tistory.lordeye.domain.BoardVO;
 import com.tistory.lordeye.service.BoardService;
@@ -25,7 +26,7 @@ public class BoardController {
 		logger.info("register get .....");
 	}
 	
-	@RequestMapping(value="/register", method=RequestMethod.POST)
+	/*@RequestMapping(value="/register", method=RequestMethod.POST)
 	public String registPOST(BoardVO board, Model model) throws Exception{
 		
 		logger.info("regist post .....");
@@ -36,5 +37,21 @@ public class BoardController {
 		model.addAttribute("result", "success");
 		
 		return	"/board/success";
+	}*/
+	
+	@RequestMapping (value="/register",method={RequestMethod.POST})
+	public String regisgerPOST(BoardVO board , RedirectAttributes rttr) throws Exception{
+		logger.info("regist post..............");
+		logger.info(board.toString());
+		
+		service.regist(board);
+		
+		rttr.addAttribute("msg","SUCCESS");
+		return "redirect:/board/listAll";
+	}
+	
+	@RequestMapping(value="/listAll", method=RequestMethod.GET)
+	public void listAll(Model model) throws Exception{
+		logger.info("show all list..............");
 	}
 }
