@@ -70,18 +70,19 @@ public class BoardController {
 		
 		return "redirect:/board/listAll";
 	}
+	
+	@RequestMapping(value="/modify" , method = RequestMethod.GET)
+	public void modifyGET(int bno, Model model) throws Exception{
+		model.addAttribute(service.read(bno));		
+	}
+	
 	@RequestMapping(value="/modify", method=RequestMethod.POST)
 	public String modifyPOST(BoardVO board,RedirectAttributes rttr) throws Exception{
 		
+		System.out.println("#####"+board.getWriter());
 		service.modify(board);
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		return "redirect:/board/listAll";
-	}
-	@RequestMapping(value="/modify" , method = RequestMethod.GET)
-	public void modifyGET(int bno, Model model) throws Exception{
-		model.addAttribute(service.read(bno));
-		
-		
 	}
 	
 }
